@@ -152,7 +152,7 @@
                     var serverUrl = app.serverUrl;
 					axios.defaults.withCredentials = true;
 					axios.post(
-                            serverUrl + '/orders/getPaidOrderInfo?orderId=' + orderId, 
+                            serverUrl + '/payment/pay/getPaidOrderInfo?orderId=' + orderId,
 							{},
 							{
 								headers: {
@@ -180,7 +180,7 @@
                     var paymentServerUrl = app.paymentServerUrl;
 					axios.defaults.withCredentials = true;
 					axios.post(
-                            paymentServerUrl + '/payment/getWXPayQRCode?merchantUserId=' + userInfo.id + "&merchantOrderId=" + orderId, 
+                            paymentServerUrl + '/payment/pay/getWXPayQRCode?merchantUserId=' + userInfo.id + "&merchantOrderId=" + orderId,
 							{},
 							{
 								headers: {

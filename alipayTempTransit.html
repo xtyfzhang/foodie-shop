@@ -111,7 +111,7 @@
                     var paymentServerUrl = app.paymentServerUrl;
 					axios.defaults.withCredentials = true;
 					axios.post(
-                            paymentServerUrl + '/payment/goAlipay?merchantUserId=' + userInfo.id + "&merchantOrderId=" + orderId, 
+                            paymentServerUrl + '/payment/pay/goAlipay?merchantUserId=' + userInfo.id + "&merchantOrderId=" + orderId,
 							{},
 							{
 								headers: {
