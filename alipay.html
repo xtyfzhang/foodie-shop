@@ -134,7 +134,7 @@
                                     var orderStatus = res.data.data;
                                     console.log(orderStatus);
     
-                                    if (orderStatus.orderStatus == 20) {
+                                    if (orderStatus.status == 20) {
                                         window.location.href = "success.html?orderId=" + orderId + "&orderAmount=" + this.amount;
                                     }
 								} else {

@@ -560,11 +560,12 @@
 										// 微信支付则跳转到微信支付页面，并且获得支付二维码
 										window.location.href = "wxpay.html?orderId=" + orderId;
 									} else if (choosedPayMethod == 2) {
+										debugger;
 										this.orderId = orderId;
 
 										// 支付宝支付直接跳转
-										window.location.href = "alipay.html?orderId=" + orderId + "&amount="+this.totalAmount;
-										window.open("alipayTempTransit.html?orderId=" + orderId);
+										window.open("alipay.html?orderId=" + orderId + "&amount="+this.totalAmount);
+										window.location.href = "alipayTempTransit.html?orderId=" + orderId;
 										// const newWindow = window.open();
 										// 弹出的新窗口进行支付
 										// newWindow.location = "alipayTempTransit.html?orderId=" + orderId;
