@@ -124,7 +124,7 @@
 					</div>
 				</div>
 
-				<div v-for="(rootCat, rootIndex) in secKill">
+				<div v-for="(rootCat, rootIndex) in secKillItemsList">
 					<div class="am-g am-g-fixed floodFour">
 						<div class="am-u-sm-5 am-u-md-4 text-one list" :style="'background-color:' + rootCat.bgColor">
 							<a href="javascript:void(0);">
@@ -370,6 +370,7 @@
 				carouselList: [],
 				categoryList: [],
 				sixNewItemsList: [],
+				secKillItemsList:[],
 
 				userIsLogin: false,
 				userInfo: {},
@@ -436,7 +437,6 @@
 					}
 					// window.location.href = "search.html?keywords=" + keywords;
 					window.open("catItems.html?searchType=searchItems&keywords=" + keywords);
-					// window.open("search.html?searchType=searchItems&keywords=" + keywords);
 				},
 				renderSixNewItems() {
 
@@ -467,7 +467,26 @@
 							}
 						});
 				},
-				
+				renderSecKill() {
+
+					debugger
+					var serverUrl = app.serverUrl;
+
+					// 获得各个分类下的最新6个商品
+					axios.get(
+							serverUrl + '/seckill/seckill/list', {})
+							.then(res => {
+								debugger
+								if (res.data.status == 200) {
+									/*var secKillItemsListTemp = res.data.data
+									var sixNewItemsList = this.secKillItemsList;
+									sixNewItemsList.push(sixNewItemsListTemp[0]);*/
+									this.secKillItemsList = res.data.data;
+									// console.log(sixNewItemsList);
+									this.isScrolling = false;	// 加载完毕以后表示下次可以继续滚动加载
+								}
+							});
+				},
 				renderCarousel() {
 					var serverUrl = app.serverUrl;
 					// 获得轮播图
@@ -643,6 +662,7 @@
 		
 		$(window).scroll(
 			function() {
+				index.renderSecKill();
 				// scrollTop为滚动条在Y轴上的滚动距离。
 				// clientHeight为内容可视区域的高度。
 				// scrollHeight为内容可视区域的高度加上溢出（滚动）的距离。
