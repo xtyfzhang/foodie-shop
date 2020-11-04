@@ -115,76 +115,40 @@
 	<div class="shopMainbg">
 		<div class="shopMain" id="shopmain">
 
-			<div class="am-g am-g-fixed recommendation">
-				<!-- 秒杀商品信息-->
+			<!--<div class="am-g am-g-fixed recommendation">
+				&lt;!&ndash; 秒杀商品信息&ndash;&gt;
 				<div class="am-container ">
 					<div class="shopTitle ">
-						<h4>天天吃货-限时秒杀</h4>
-						<h3>优惠尽在于此</h3>
+						<h4>限时秒杀</h4>
+						<h3>优惠一网打尽</h3>
 					</div>
 				</div>
 
-				<div v-for="(rootCat, rootIndex) in secKillItemsList">
-					<div class="am-g am-g-fixed floodFour">
-						<div class="am-u-sm-5 am-u-md-4 text-one list" :style="'background-color:' + rootCat.bgColor">
-							<a href="javascript:void(0);">
-								<img :src="rootCat.catImage"/>
-							</a>
-							<div class="triangle-topright"></div>
-						</div>
-						<div class="am-u-sm-7 am-u-md-4 text-two sug">
+
+				<div class="am-g am-g-fixed floodFour">
+					<div class="am-u-sm-5 am-u-md-4 text-one list" :style="'background-color:red'">
+						<a href="javascript:void(0);">
+								&lt;!&ndash;<img :src="rootCat.catImage"/>&ndash;&gt;
+							<img src="img/seckill-inco.png" />
+						</a>
+						<div class="triangle-topright"></div>
+					</div>
+					<div v-for="(secKillItems, secKillItemsIndex) in secKillItemsList">
+						<div class="am-u-sm-3 am-u-md-2 text-three">
 							<div class="outer-con ">
 								<div class="title ">
-									{{rootCat.simpleItemList[0].itemName}}
+									{{secKillItems.itemName}}  ￥{{secKillItems.priceSecondsToKill}}
 								</div>
+
 							</div>
-							<a :href="'item.html?itemId=' + rootCat.simpleItemList[0].itemId" target="_blank"><img :src="rootCat.simpleItemList[0].itemUrl" style="width: 170px; height: 170px;"/></a>
-						</div>
-						<div class="am-u-sm-7 am-u-md-4 text-two">
-							<div class="outer-con ">
-								<div class="title ">
-									{{rootCat.simpleItemList[1].itemName}}
-								</div>
-							</div>
-							<a :href="'item.html?itemId=' + rootCat.simpleItemList[1].itemId" target="_blank"><img :src="rootCat.simpleItemList[1].itemUrl" style="width: 170px; height: 170px;"/></a>
-						</div>
-						<div class="am-u-sm-3 am-u-md-2 text-three big" >
-							<div class="outer-con " >
-								<div class="title ">
-									{{rootCat.simpleItemList[2].itemName}}
-								</div>
-							</div>
-							<a :href="'item.html?itemId=' + rootCat.simpleItemList[2].itemId" target="_blank"><img :src="rootCat.simpleItemList[2].itemUrl" style="width: 170px; height: 170px;"/></a>
-						</div>
-						<div class="am-u-sm-3 am-u-md-2 text-three sug">
-							<div class="outer-con ">
-								<div class="title ">
-									{{rootCat.simpleItemList[3].itemName}}
-								</div>
-							</div>
-							<a :href="'item.html?itemId=' + rootCat.simpleItemList[3].itemId" target="_blank"><img :src="rootCat.simpleItemList[3].itemUrl" style="width: 170px; height: 170px;"/></a>
-						</div>
-						<div class="am-u-sm-3 am-u-md-2 text-three ">
-							<div class="outer-con ">
-								<div class="title ">
-									{{rootCat.simpleItemList[4].itemName}}
-								</div>
-							</div>
-							<a :href="'item.html?itemId=' + rootCat.simpleItemList[4].itemId" target="_blank"><img :src="rootCat.simpleItemList[4].itemUrl" style="width: 170px; height: 170px;"/></a>
-						</div>
-						<div class="am-u-sm-3 am-u-md-2 text-three last big ">
-							<div class="outer-con ">
-								<div class="title ">
-									{{rootCat.simpleItemList[5].itemName}}
-								</div>
-							</div>
-							<a :href="'item.html?itemId=' + rootCat.simpleItemList[5].itemId" target="_blank"><img :src="rootCat.simpleItemList[5].itemUrl" style="width: 170px; height: 170px;"/></a>
+							<a :href="'item.html?itemId=' + secKillItems.itemId" target="_blank"><img :src="secKillItems.itemUrl" style="width: 170px; height: 170px;"/></a>
 						</div>
 					</div>
-
 				</div>
 
-			</div>
+			</div>-->
+
+
 			<div class="clear "></div>
 			<!--热门活动 -->
 
@@ -659,10 +623,11 @@
 		});
 	</script>
 	<script type="text/javascript">
-		
+
+		//index.renderSecKill();
 		$(window).scroll(
 			function() {
-				index.renderSecKill();
+
 				// scrollTop为滚动条在Y轴上的滚动距离。
 				// clientHeight为内容可视区域的高度。
 				// scrollHeight为内容可视区域的高度加上溢出（滚动）的距离。
