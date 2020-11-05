@@ -597,7 +597,7 @@
 						var serverUrl = app.serverUrl;
 						axios.defaults.withCredentials = true;
 						axios.post(
-								serverUrl + '/merchandise/shopcart/add?userId=' + userInfo.id,
+								serverUrl + '/merchandise/shopcart/add',
 								shopcartItem, {
 									headers: {
 										/*'headerUserId': userInfo.id,*/
@@ -780,7 +780,7 @@
 					var serverUrl = app.serverUrl;
 
 					axios.defaults.withCredentials = true;
-					axios.post(serverUrl + '/user/passport/logout?userId=' + userId, {})
+					axios.post(serverUrl + '/user/passport/logout', {})
 						.then(res => {
 							if (res.data.status == 200) {
 								window.location.href = "index.html";

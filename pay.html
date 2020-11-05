@@ -641,7 +641,7 @@
 					var serverUrl = app.serverUrl;
 					axios.defaults.withCredentials = true;
 					axios.post(
-							serverUrl + '/user/address/delete?userId=' + userInfo.id + "&addressId=" + addressId,
+							serverUrl + '/user/address/delete?' + "addressId=" + addressId,
 							{},
 							{
 								headers: {
@@ -663,7 +663,7 @@
 					var serverUrl = app.serverUrl;
 					axios.defaults.withCredentials = true;
 					axios.post(
-							serverUrl + '/user/address/setDefalut?userId=' + userInfo.id + "&addressId=" + addressId,
+							serverUrl + '/user/address/setDefalut?' + "addressId=" + addressId,
 							{},
 							{
 								headers: {
@@ -848,7 +848,7 @@
 					var serverUrl = app.serverUrl;
 					axios.defaults.withCredentials = true;
 					axios.post(
-							serverUrl + '/user/address/list?userId=' + userInfo.id, {},
+							serverUrl + '/user/address/list' , {},
 							{
 								headers: {
 									/*'headerUserId': userInfo.id,*/

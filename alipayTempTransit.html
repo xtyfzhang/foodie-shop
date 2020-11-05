@@ -112,12 +112,11 @@
                     var paymentServerUrl = app.paymentServerUrl;
 					axios.defaults.withCredentials = true;
 					axios.post(
-                            paymentServerUrl + '/payment/pay/goAlipay?merchantUserId=' + userInfo.id + "&merchantOrderId=" + orderId,
+                            paymentServerUrl + '/payment/pay/goAlipay?' + "merchantOrderId=" + orderId,
 							{},
 							{
 								headers: {
-									'imoocUserId': "8278478-2576605874",
-									'password': "tr43-089i-ut08-93i0"
+                                    'headerUserToken': userInfo.userUniqueToken
 								}
 							})
 							.then(res => {
